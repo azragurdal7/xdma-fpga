@@ -3,6 +3,8 @@
 import sys
 from pathlib import Path
 import struct
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -88,7 +90,10 @@ def plot_sin_cos(sin_values,cos_values,counter_values):
 
 
     plt.tight_layout()
-    plt.show()
+    out = Path(sys.argv[1]).with_suffix(".sincos.png") if len(sys.argv) > 1 else Path("sincos.png")
+    plt.savefig(str(out), dpi=120)
+    plt.close()
+    print(f"Grafik kaydedildi: {out}")
 
 def lfsr_next(lfsr,tap_positions):
     lfsr &= 0xFFFFFFFF
@@ -185,7 +190,10 @@ def plot_fft (sin_values,cos_values,sampling_rate=25e6,skip=4096):
     plt.legend()
 
     plt.tight_layout()
-    plt.show()
+    out_fft = Path(sys.argv[1]).with_suffix(".fft.png") if len(sys.argv) > 1 else Path("fft.png")
+    plt.savefig(str(out_fft), dpi=120)
+    plt.close()
+    print(f"FFT grafiği kaydedildi: {out_fft}")
 
 
 if __name__ == "__main__":
