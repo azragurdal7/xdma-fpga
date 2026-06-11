@@ -1,0 +1,29 @@
+# Compiled kernel objects
+*.o
+*.ko
+*.mod
+*.mod.c
+*.mod.o
+*.cmd
+.*.cmd
+*.symvers
+modules.order
+Module.symvers
+.tmp_versions/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Large binary capture files
+*.bin
+*.raw
+
+# Test output text logs
+plotsincos_output.txt
+analysis.txt
+logs/
+
+# Misc
+*.snap
